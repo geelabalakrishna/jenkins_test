@@ -9,7 +9,7 @@ pipeline {
                         branch pattern: "main", comparator: "EQUALS"
                     }
                     steps {
-                        echo 'Running on the master branch only'
+                        echo 'Running on the main branch only'
                         // Add additional steps for master branch
                     }
                 }
@@ -18,7 +18,7 @@ pipeline {
                         branch pattern: "dev", comparator: "EQUALS"
                     }
                     steps {
-                        echo 'Running on the master branch only'
+                        echo 'Running on the dev branch only'
                         // Add additional steps for master branch
                     }
                 } 
