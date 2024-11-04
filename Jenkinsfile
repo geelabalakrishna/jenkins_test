@@ -1,3 +1,4 @@
+
 pipeline{
     agent any
     stages{
@@ -6,7 +7,7 @@ pipeline{
                 allOf{
                     branch 'main'      // Condition 1: Current branch is master
                     branch 'dev'     // Condition 2: Current branch is develop
-                    branch  'prod'
+                    branch 'prod'
                 }
             }
             steps{
@@ -14,4 +15,4 @@ pipeline{
             }
         }
     }
-} 
+}
