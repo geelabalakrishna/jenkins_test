@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+    options {
+        buildDiscarder(logRotator(
+            numToKeep: 5,             // Keep only the latest 5 builds
+            daysToKeep: 10,           // Keep builds from the last 10 days
+            artifactNumToKeep: 3,     // Keep artifacts from only the latest 3 builds
+            artifactDaysToKeep: 7     // Keep artifacts from the last 7 days
+        ))
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+    }
+}
