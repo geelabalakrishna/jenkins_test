@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm // Check out the repository in the 'src' directory
-                sh 'ls -la src' // List files to verify checkout location
+                sh 'ls -la jenkins' // List files to verify checkout location
             }
         }
         stage('Build') {
