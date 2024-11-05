@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    environment {
+        ENV_TYPE = 'staging'  // Could be set externally or in pipeline config
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Deploy to Staging') {
+            when {
+                environment name: 'ENV_TYPE', value: 'staging'
+            }
+            steps {
+                echo 'Deploying to the staging environment...'
+                // Staging deployment steps
+            }
+        }
+
+        stage('Deploy to Production') {
+            when {
+                environment name: 'ENV_TYPE', value: 'production'
+            }
+            steps {
+                echo 'Deploying to the production environment...'
+                // Production deployment steps
+            }
+        }
+    }
+}
