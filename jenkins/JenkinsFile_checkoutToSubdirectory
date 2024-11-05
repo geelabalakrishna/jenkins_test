@@ -1,1 +1,23 @@
+pipeline {
+    agent any
+    options {
+        checkoutToSubdirectory('jenkins') // Perform checkout in a 'src' subdirectory
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm // Check out the repository in the 'src' directory
+                sh 'ls -la src' // List files to verify checkout location
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('jenkins') { // Navigate to 'src' directory to perform further actions
+                    sh 'echo Building project in src... > bala.txt'
+                    // Add additional build steps here
+                }
+            }
+        }
+    }
+}
 
