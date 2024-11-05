@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('Dependency Update') {
+        stage('DependencyUpdate') {
             when {
                 changelog '.*^\\[DEPENDENCY\\] .+$' // Check if commit message contains [DEPENDENCY]
             }
