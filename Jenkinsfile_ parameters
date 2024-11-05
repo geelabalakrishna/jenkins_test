@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'DEPLOY_ENV', defaultValue: 'dev', description: 'Deployment environment')
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Deploy to Production') {
+            when {
+                equals expected: 'prod', actual: params.DEPLOY_ENV
+            }
+            steps {
+                echo 'Deploying to production...'
+                // Add production deployment steps here
+            }
+        }
+
+        stage('Deploy to Development') {
+            when {
+                equals expected: 'dev', actual: params.DEPLOY_ENV
+            }
+            steps {
+                echo 'Deploying to development...'
+                // Add development deployment steps here
+            }
+        }
+    }
+}
