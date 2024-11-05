@@ -2,10 +2,10 @@ pipeline {
     agent any
     options {
         buildDiscarder(logRotator(
-            numToKeep: 5,             // Keep only the latest 5 builds
-            daysToKeep: 10,           // Keep builds from the last 10 days
-            artifactNumToKeep: 3,     // Keep artifacts from only the latest 3 builds
-            artifactDaysToKeep: 7     // Keep artifacts from the last 7 days
+            numToKeepStr: '5',        // Keep only the latest 5 builds
+            artifactNumToKeepStr: '3', // Keep artifacts from the latest 3 builds
+            daysToKeepStr: '10',       // Discard builds older than 10 days
+            artifactDaysToKeepStr: '7' // Discard artifacts older than 7 days
         ))
     }
     stages {
