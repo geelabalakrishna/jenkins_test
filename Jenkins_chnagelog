@@ -10,7 +10,7 @@ pipeline {
 
         stage('DependencyUpdate') {
             when {
-                changelog '.*^\\[DEPENDENCY\\] .+$' // Check if commit message contains [DEPENDENCY]
+                changelog '.*^\\[DEPENDENCY\\] .+$' // Check if commit messagecontains [DEPENDENCY]
             }
             steps {
                 echo 'Running tasks related to dependency updates...'
