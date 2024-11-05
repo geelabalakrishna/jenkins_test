@@ -18,7 +18,7 @@ pipeline {
             }
         }
 
-        stage('Bug Fix Tasks') {
+        stage('Bug FixTasks') {
             when {
                 changelog '.*^\\[BUGFIX\\] .+$' // Check if commit message contains [BUGFIX]
             }
