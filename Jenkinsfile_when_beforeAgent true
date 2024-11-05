@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+
+        stage('Deploy to Production') {
+            agent {
+                label 'production-agent'
+            }
+            when {
+                beforeAgent true
+                environment name: 'DEPLOY_TO', value: 'production'
+            }
+            steps {
+                echo 'Deploying to production environment...'
+            }
+        }
+    }
+}
