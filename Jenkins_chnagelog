@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                // Add your build steps here
+            }
+        }
+
+        stage('DependencyUpdate') {
+            when {
+                changelog '.*^\\[DEPENDENCY\\] .+$' // Check  if commit messagecontains [DEPENDENCY]
+            }
+            steps {
+                echo 'Running tasks related to dependency updates...'
+                // Add steps for dependency updates, such as tests or validation
+            }
+        }
+
+        stage('Bug Fix Tasks') {
+            when {
+                changelog '.*^\\[BUGFIX\\] .+$' // Check if commit message contains [BUGFIX]
+            }
+            steps {
+                echo 'Running tasks related to bug fixes...'
+                // Add steps specific to bug fix tasks
+            }
+        }
+    }
+}
