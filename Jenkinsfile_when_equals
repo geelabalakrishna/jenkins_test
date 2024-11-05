@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+            }
+        }
+        stage('Special Build Tasks') {
+            when {
+                equals expected: 7, actual: currentBuild.number
+            }
+            steps {
+                echo 'Running special tasks for build 100...'
+                // Add specific steps for this build number
+            }
+        }
+    }
+}
